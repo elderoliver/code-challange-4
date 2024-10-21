@@ -46,7 +46,7 @@ button.addEventListener("click", function () {
   for (const [index, text] of texts.entries()) {
     let str = text.trim().toLocaleLowerCase();
     str = toCamelCase(str);
-    console.log(`${str} ${emoji.repeat(index + 1)}`);
+    console.log(`${str.padEnd(20, " ")} ${emoji.repeat(index + 1)}`);
   }
 });
 
