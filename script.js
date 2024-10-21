@@ -26,7 +26,6 @@
     you're stuck. Then pause and continue!
     Afterwards, test with your own test data!
     GOOD LUCK �
-    document.body.append(document.createElement(
 */
 
 console.log("Code challange 4");
@@ -35,7 +34,27 @@ document.body.append(document.createElement("textarea"));
 document.body.append(document.createElement("button"));
 
 const button = document.querySelector("button");
+button.textContent = "SEND";
 
 button.addEventListener("click", function () {
-  const button = document.querySelector("button");
+  const textarea = document.querySelector("textarea");
+
+  const texts = textarea.value.split("\n");
+
+  const emoji = "✅";
+
+  for (const [index, text] of texts.entries()) {
+    let str = text.trim().toLocaleLowerCase();
+    str = toCamelCase(str);
+    console.log(`${str} ${emoji.repeat(index + 1)}`);
+  }
 });
+
+function toCamelCase(str) {
+  const arrStr = str.split("_");
+  let secondStr = arrStr[1];
+
+  return (
+    arrStr[0] + secondStr.replace(secondStr[0], secondStr[0].toUpperCase())
+  );
+}
